@@ -520,6 +520,21 @@
     <!--      Data Connectors                       -->
     <!-- ========================================== -->
 
+    <!-- SARL Static Connector -->
+    <resolver:AttributeDefinition xsi:type="ad:Simple" id="SARLURLID" sourceAttributeID="SARLAttribute">
+        <resolver:Dependency ref="SARLConnector" />
+        <resolver:AttributeEncoder xsi:type="enc:SAML2String"
+                                   name="SARL_ATTR_1"
+                                   friendlyName="FRIENDLY_ATTR_1" />
+    </resolver:AttributeDefinition>
+
+    <resolver:DataConnector id="SARLConnector" xsi:type="dc:Static">
+        <dc:Attribute id="SARLAttribute">
+            <dc:Value>exampleurl</dc:Value>
+        </dc:Attribute>
+    </resolver:DataConnector>
+
+
     <!-- Example Static Connector -->
     <!--
     <resolver:DataConnector id="staticAttributes" xsi:type="Static" xmlns="urn:mace:shibboleth:2.0:resolver:dc">
@@ -532,7 +547,7 @@
         </Attribute>
     </resolver:DataConnector>
     -->
-
+    
 <resolver:DataConnector id="staticAttributes" xsi:type="Static" xmlns="urn:mace:shibboleth:2.0:resolver:dc">
     <Attribute id="eduPersonAffiliation">
         <Value>member</Value>
