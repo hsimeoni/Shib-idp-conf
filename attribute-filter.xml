@@ -15,6 +15,14 @@
                         urn:mace:shibboleth:2.0:afp:mf:basic classpath:/schema/shibboleth-2.0-afp-mf-basic.xsd
                         urn:mace:shibboleth:2.0:afp:mf:saml classpath:/schema/shibboleth-2.0-afp-mf-saml.xsd">
 
+<!-- SARL Filter Policy -->
+<afp:AttributeFilterPolicy id="releaseToAnyone">
+    <afp:PolicyRequirementRule xsi:type="basic:ANY" />
+    <afp:AttributeRule attributeID="SARLURLID">
+         <afp:PermitValueRule xsi:type="basic:ANY"/>
+    </afp:AttributeRule>
+</afp:AttributeFilterPolicy>
+
 <!--  Release only given name and surname to alternative SPs -->
 <AttributeFilterPolicy id="releaseToAltSPs">
     <PolicyRequirementRule xsi:type="basic:AttributeRequesterRegex" regex="^https://altsp.*$" />
